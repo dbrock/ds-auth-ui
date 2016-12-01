@@ -92,9 +92,9 @@ Promise.resolve(location.hash.slice(1)).then(root => {
             [`${root}-table`]: `
               <table>
                 <tr>
-                  <th>Timestamp</th>
+                  <th>Access granted</th>
                   <th>Caller</th>
-                  <th>Callee</th>
+                  <th>Target</th>
                   <th>Signature</th>
                 </tr>
                 ${edges.map(([block, from, to, sig]) => `
