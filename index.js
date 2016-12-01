@@ -8,6 +8,7 @@ var names = {
   "0x7bb0b08587b8a6b8945e09f1baca426558b0f06a": "Alpha Dynasty",
   "0xd3a84329b273d5b63002cf390a736c2f204b1aeb": "DAI frontend",
   "0xc66ea802717bfb9833400264dd12c2bceaa34a6d": "MKR frontend",
+  "0x77a79a78c56504c6c1f7499852b6e1918a6d0ab4": "MakerDAO root",
 }
 
 var sigs = [
@@ -30,10 +31,15 @@ Promise.resolve(location.hash.slice(1)).then(root => {
   root = hex(root)
 
   document.write(`
-    <div style="margin: 1rem">
-       <span style="color: gray"><strong>DSBasicAuthority &nbsp;</strong></span>
-       <strong>${root}</strong>
-     </div>
+    <div style="margin: 1rem; overflow: hidden">
+      <div style="float: left; margin-right: 2rem">
+        <b style="color: gray">DSBasicAuthority</b>
+      </div>
+      <div style="float: left">
+        <b>${root}</b>
+        <div>${names[root] || ""}</div>
+      </div>
+    </div>
     <div data-field=${root}-graph style="margin: 2rem 1rem">...</div>
     <div data-field=${root}-table style="margin: 1rem"></div>
   `)
