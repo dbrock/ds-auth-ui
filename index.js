@@ -105,7 +105,7 @@ Promise.resolve(location.hash.slice(1)).then(root => {
                 </tr>
                 ${edges.map(([block, from, to, sig]) => `
                   <tr>
-                    <td>${moment(getBlockTime(Number(block))).format("YYYY-MM-DD hh:mm:ss")}</td>
+                    <td>${new Date(getBlockTime(Number(block))).toISOString().replace(/\..*/, "")}</td>
                     <td>${describe(from)}</td>
                     <td>&rarr; ${describe(to)}</td>
                     <td>${describeSig(sig)}</td>
