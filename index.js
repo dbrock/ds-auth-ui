@@ -8,7 +8,7 @@ var names = {
   "0x7bb0b08587b8a6b8945e09f1baca426558b0f06a": "Alpha Dynasty",
   "0xd3a84329b273d5b63002cf390a736c2f204b1aeb": "DAI frontend",
   "0xc66ea802717bfb9833400264dd12c2bceaa34a6d": "MKR frontend",
-  "0x77a79a78c56504c6c1f7499852b6e1918a6d0ab4": "MakerDAO root authority",
+  "0x77a79a78c56504c6c1f7499852b6e1918a6d0ab4": "MakerDAO root",
 }
 
 var sigs = [
