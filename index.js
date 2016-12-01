@@ -98,17 +98,17 @@ Promise.resolve(location.hash.slice(1)).then(root => {
             [`${root}-table`]: `
               <table>
                 <tr>
-                  <th>Access granted</th>
-                  <th>Caller</th>
-                  <th>Target</th>
-                  <th>Signature</th>
+                  <th>Granted</th>
+                  <th>Sender</th>
+                  <th><span style="visibility: hidden">&rarr;</span> Receiver</th>
+                  <th>Message</th>
                 </tr>
                 ${edges.map(([block, from, to, sig]) => `
                   <tr>
                     <td>${moment(getBlockTime(Number(block))).format("YYYY-MM-DD hh:mm:ss")}</td>
                     <td>${describe(from)}</td>
                     <td>&rarr; ${describe(to)}</td>
-                    <td>.${describeSig(sig)}</td>
+                    <td>${describeSig(sig)}</td>
                   </tr>
                 `).join("\n")}
               </table>
