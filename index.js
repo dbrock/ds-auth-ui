@@ -122,7 +122,7 @@ Promise.resolve(location.hash.slice(1)).then(root => {
                 " ${describe(root)} " -> " ${describe(authority)} "
                 [label="      owned by      ", style=bold, arrowhead=odot]
                 ${edges.map(([block, from, to, sig]) => `
-                  "${describe(from)}" -> "${describe(to)}"
+                  " ${describe(from)} " -> " ${describe(to)} "
                   [label="       ${describeSig(sig).replace(/\(.*/, "")}       "]
                   [style=dashed, arrowhead=open]
                 `).join("\n")}
