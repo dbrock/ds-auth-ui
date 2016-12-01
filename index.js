@@ -99,7 +99,7 @@ Promise.resolve(location.hash.slice(1)).then(root => {
                 </tr>
                 ${edges.map(([block, from, to, sig]) => `
                   <tr>
-                    <td>${moment(getBlockTime(Number(block))).format("YYYY-MM-DD hh:mm:ss")}</td>
+                    <td style="font-size: .75rem">${moment(getBlockTime(Number(block))).format("YYYY-MM-DD hh:mm:ss")}</td>
                     <td>${describe(from)}</td>
                     <td>${describe(to)}</td>
                     <td>${describeSig(sig)}</td>
