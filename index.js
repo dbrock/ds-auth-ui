@@ -34,7 +34,7 @@ Promise.resolve(location.hash.slice(1)).then(root => {
        <span style="color: gray"><strong>DSBasicAuthority &nbsp;</strong></span>
        <strong>${root}</strong>
      </div>
-    <div data-field=${root}-graph style="margin: 2rem 1rem"></div>
+    <div data-field=${root}-graph style="margin: 2rem 1rem">...</div>
     <div data-field=${root}-table style="margin: 1rem"></div>
   `)
 
