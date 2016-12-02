@@ -5,7 +5,7 @@ function toQueryString(params) {
   ])).map(([name, value]) => `${name}=${value}`).join("&")
 }
 
-var useCache = false
+var useCache = !!localStorage.getItem("useCache")
 var etherscan = params => Promise.resolve(
   `https://api.etherscan.io/api?${toQueryString(params)}`
 ).then(url => {

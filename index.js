@@ -31,17 +31,13 @@ Promise.resolve(location.hash.slice(1)).then(root => {
   root = hex(root)
 
   document.write(`
-    <div style="margin: 1rem; overflow: hidden">
-      <div style="float: left; margin-right: 2rem">
-        <b style="color: gray">DSBasicAuthority</b>
-      </div>
-      <div style="float: left">
-        <b>${root}</b>
-        <div>${names[root] || ""}</div>
-      </div>
+    <div style="padding: 1rem; overflow: hidden">
+      <div style="font-size: 1.25rem"><b>${names[root] || ""}</b></div>
+      <div>${root}</div>
+      <div style="color: gray"><b>DSBasicAuthority</b></div>
     </div>
-    <div data-field=${root}-graph style="margin: 2rem 1rem">...</div>
-    <div data-field=${root}-table style="margin: 1rem"></div>
+    <div data-field=${root}-graph style="margin: 1rem">...</div>
+    <div data-field=${root}-table style="margin: 2rem 1rem"></div>
   `)
 
   function describe(address) {
@@ -93,15 +89,16 @@ Promise.resolve(location.hash.slice(1)).then(root => {
           edges = Object.keys(edges).map(key => {
             return [edges[key], ...key.split(" ")]
           }).reverse()
-    
+
+          var lastBlock
           update({
             [`${root}-table`]: `
               <table>
-                <tr>
-                  <th>Granted</th>
-                  <th>Sender</th>
-                  <th><span style="visibility: hidden">&rarr;</span> Receiver</th>
-                  <th>Message</th>
+                <tr style="display: none">
+                  <th>Access granted</th>
+                  <th>Caller</th>
+                  <th><span style="visibility: hidden">&rarr;</span> Target</th>
+                  <th>Signature</th>
                 </tr>
                 ${edges.map(([block, from, to, sig]) => `
                   <tr>
@@ -115,10 +112,8 @@ Promise.resolve(location.hash.slice(1)).then(root => {
             `,
             [`${root}-graph`]: Viz(`
               digraph {
-                graph [fontname = "monospace"];
                 node [fontname = "monospace"];
                 edge [fontname = "monospace"];
-                fontname="monospace";
                 " ${describe(root)} " -> " ${describe(authority)} "
                 [label="      owned by      ", style=bold, arrowhead=odot]
                 ${edges.map(([block, from, to, sig]) => `
